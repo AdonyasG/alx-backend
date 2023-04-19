@@ -21,13 +21,11 @@ class FIFOCache(BaseCaching):
         if key and item:
             self.cache_data[key] = item
             self.order.append(key)
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            for key, val in self.cache_data.items():
+            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
                 evict_key = self.order.pop(0)
-                del self.cache_data[evict_key]
                 print("DISCARD: {}".format(evict_key))
-                break
+                del self.cache_data[evict_key]
 
     def get(self, key):
         """return the value in self.cache_data linked to key"""
-        return super().get(key, None)
+        return self.cache_data.get(key, None)
