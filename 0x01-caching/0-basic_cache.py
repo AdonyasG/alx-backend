@@ -21,4 +21,7 @@ class BasicCache(BaseCaching):
     def get(self, key):
         """return the value in self.cache_data linked to key"""
         self.key = key
-        return self.cache_data.get(key)
+        if key in self.cache_data:
+            return self.cache_data.get(key)
+        else:
+            return None
