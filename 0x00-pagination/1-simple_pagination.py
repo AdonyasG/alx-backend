@@ -34,8 +34,6 @@ class Server:
 
         data = self.dataset()
 
-        try:
-            assert data[index[1]]
-            return data[index[0]:index[1]]
-        except IndexError:
+        if index[1] > len(data):
             return []
+        return data[index[0]:index[1]]
