@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """simple_helper_fun"""
+from typing import Tuple
 
 
-def index_range(page: int, page_size: int) -> tuple[int, int]:
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """Return the start and end indexes for the current page.
     Args:
         page : The current page number (1-indexed).
