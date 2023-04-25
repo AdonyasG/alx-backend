@@ -7,8 +7,8 @@ from flask import Flask, render_template
 class Config(object):
     """babel config"""
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAUlLT_LOCALE = "en"
-    BABEL_DEFAUlLT_TIMEZONE = "UTC"
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
 app = Flask(__name__)
