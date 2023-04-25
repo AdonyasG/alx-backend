@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""2-app"""
+"""5-app"""
 
 from flask import Flask, render_template, g
 from flask_babel import Babel
@@ -17,12 +17,6 @@ class Config(object):
 app = Flask(__name__)
 babel = Babel(app)
 app.config.from_object(Config)
-
-
-@app.route("/", strict_slashes=False)
-def hello_world():
-    """initialize"""
-    return render_template('5-index.html')
 
 
 @babel.localeselector
@@ -56,6 +50,12 @@ def before_request() -> None:
     """before request"""
     usr = get_user()
     g.usr = usr
+
+
+@app.route("/", strict_slashes=False)
+def hello_world():
+    """initialize"""
+    return render_template('5-index.html')
 
 
 if __name__ == "__main__":
