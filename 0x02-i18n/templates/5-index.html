@@ -4,10 +4,10 @@
     </head>
     <body>
         <h1>{{ gettext("home_header") }}</h1>
-        {% if g.users %}
-        <h2>{{ gettext("logged_in_as", username=g.users.get('name', '')) }}</h2>
+        {% if g.usr %}
+        <p>{{ gettext("logged_in_as", username=g.usr.get('name', '')) }}</p>
         {% else %}
-        <h2>{{ gettext("not_logged_in") }}</h2>
+        <p>{{ gettext("not_logged_in") }}</p>
         {% endif %}       
     </body>
 </html>
