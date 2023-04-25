@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""2-app"""
-from flask_babel import Babel
-from flask import Flask, render_template, request
+"""3-app"""
 
-app = Flask(__name__)
-babel = Babel(app)
+from flask import Flask, render_template
+from flask_babel import Babel
+from flask import request
 
 
 class Config(object):
@@ -13,19 +12,22 @@ class Config(object):
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
-    @babel.localeselector
-    def get_locale():
-        """get locale"""
-        return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
+app = Flask(__name__)
+babel = Babel(app)
 app.config.from_object(Config)
 
 
-@app.route("/")
+@app.route("/", strict_slashes=False)
 def hello_world():
     """initialize"""
     return render_template('3-index.html')
+
+
+@babel.localeselector
+def get_locale() -> str:
+    """get locale"""
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == "__main__":
