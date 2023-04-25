@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""0-app"""
+"""1-app"""
 from flask_babel import Babel
 from flask import Flask, render_template
 from flask import request
@@ -23,4 +23,4 @@ class Config(object):
 @app.route("/")
 def hello_world():
     """initialize"""
-    return render_template('0-index.html')
+    return render_template('1-index.html')
