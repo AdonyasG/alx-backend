@@ -8,4 +8,4 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     """initialize"""
-    return render_template('index.html')
+    return render_template('0-index.html')
