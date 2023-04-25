@@ -54,8 +54,8 @@ def get_user() -> Dict:
 @app.before_request
 def before_request() -> None:
     """before request"""
-    users = get_user()
-    g.users = users
+    usr = get_user()
+    g.usr = usr
 
 
 if __name__ == "__main__":
