@@ -11,10 +11,12 @@ class Config(object):
     BABEL_DEFAUlLT_LOCALE = "en"
     BABEL_DEFAUlLT_TIMEZONE = "UTC"
 
-        
+
 app = Flask(__name__)
 babel = Babel(app)
 app.config.from_object(Config)
+
+
 @app.route("/")
 def hello_world():
     """initialize"""
