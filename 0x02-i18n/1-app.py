@@ -21,3 +21,7 @@ app.config.from_object(Config)
 def hello_world():
     """initialize"""
     return render_template('1-index.html')
+
+
+if __name__ == "__main__":
+    app.run()
