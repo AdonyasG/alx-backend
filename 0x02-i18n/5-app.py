@@ -4,6 +4,7 @@
 from flask import Flask, render_template, g
 from flask_babel import Babel
 from flask import request
+from typing import Dict
 
 
 class Config(object):
@@ -42,7 +43,8 @@ users = {
 }
 
 
-def get_user():
+def get_user() -> Dict:
+    """getuser"""
     login_id = request.args.get('login_as')
     if login_id:
         return users.get(int(login_id))
@@ -50,7 +52,8 @@ def get_user():
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
+    """before request"""
     users = get_user()
     g.users = users
 
