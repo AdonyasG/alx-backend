@@ -8,6 +8,7 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
+
 class Config(object):
     """babel config"""
     LANGUAGES = ["en", "fr"]
@@ -19,7 +20,7 @@ class Config(object):
         """get locale"""
         return request.accept_languages.best_match(app.config['LANGUAGES'])
 
-
+app.config.from_object(Config)
 @app.route("/")
 def hello_world():
     """initialize"""
