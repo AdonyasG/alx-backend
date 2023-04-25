@@ -2,7 +2,6 @@
 """1-app"""
 from flask_babel import Babel
 from flask import Flask, render_template
-from flask import request
 
 
 class Config(object):
@@ -14,7 +13,7 @@ class Config(object):
 
 app = Flask(__name__)
 babel = Babel(app)
-app.config.from_object(Config)
+app.config.from_object('1-app.Config')
 
 
 @app.route("/")
